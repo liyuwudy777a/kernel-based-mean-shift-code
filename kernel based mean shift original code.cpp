@@ -1,3 +1,4 @@
+//æµ‹è¯•GITHUBåŠŸèƒ½ï¼Œç¨‹åºä¸å®Œå–„ã€‚
 #include <opencv2\core\core.hpp>
 #include <opencv2\imgproc\imgproc.hpp>
 #include <opencv2\highgui\highgui.hpp>
@@ -29,24 +30,24 @@ Mat location_canditate;
 
 VideoCapture cap;
 
-/*****************************      Êó±ê»Øµ÷º¯Êı    *************************************/
+/*****************************      ï¿½ï¿½ï¿½ï¿½ï¿½Øµï¿½ï¿½ï¿½ï¿½ï¿½    *************************************/
 void onMouse(int event, int x, int y, int flags, void*)
 {
-	if (selectObject)//Ö»ÓĞµ±Êó±ê×ó¼ü°´ÏÂÈ¥Ê±²ÅÓĞĞ§£¬È»ºóÍ¨¹ıifÀïÃæ´úÂë¾Í¿ÉÒÔÈ·¶¨ËùÑ¡ÔñµÄ¾ØĞÎÇøÓòselectionÁË
+	if (selectObject)//Ö»ï¿½Ğµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¥Ê±ï¿½ï¿½ï¿½ï¿½Ğ§ï¿½ï¿½È»ï¿½ï¿½Í¨ï¿½ï¿½ifï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¿ï¿½ï¿½ï¿½È·ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½Ä¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½selectionï¿½ï¿½
 	{
-		selection.x = MIN(x, origin.x);//¾ØĞÎ×óÉÏ½Ç¶¥µã×ø±ê
+		selection.x = MIN(x, origin.x);//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï½Ç¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		selection.y = MIN(y, origin.y);
-		selection.width = std::abs(x - origin.x);//¾ØĞÎ¿í
-		selection.height = std::abs(y - origin.y);//¾ØĞÎ¸ß
+		selection.width = std::abs(x - origin.x);//ï¿½ï¿½ï¿½Î¿ï¿½
+		selection.height = std::abs(y - origin.y);//ï¿½ï¿½ï¿½Î¸ï¿½
 
-		selection &= Rect(0, 0, image.cols, image.rows);//ÓÃÓÚÈ·±£ËùÑ¡µÄ¾ØĞÎÇøÓòÔÚÍ¼Æ¬·¶Î§ÄÚ£¨a &= b =¡· a = a&b£¬°´Î»¡®Óë¡¯£©
+		selection &= Rect(0, 0, image.cols, image.rows);//ï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½Ä¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼Æ¬ï¿½ï¿½Î§ï¿½Ú£ï¿½a &= b =ï¿½ï¿½ a = a&bï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½ë¡¯ï¿½ï¿½
 	}
 
 	switch (event)
 	{
 	case CV_EVENT_LBUTTONDOWN:
 		origin = Point(x, y);
-		selection = Rect(x, y, 0, 0);//Êó±ê¸Õ°´ÏÂÈ¥Ê±³õÊ¼»¯ÁËÒ»¸ö¾ØĞÎÇøÓò
+		selection = Rect(x, y, 0, 0);//ï¿½ï¿½ï¿½ï¿½ï¿½Õ°ï¿½ï¿½ï¿½È¥Ê±ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		selectObject = true;
 		break;
 	case CV_EVENT_LBUTTONUP:
@@ -57,7 +58,7 @@ void onMouse(int event, int x, int y, int flags, void*)
 	}
 }
 
-/**********************************  Ö÷º¯Êı  *****************************************/
+/**********************************  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  *****************************************/
 int main()
 {
 	cap = cv::VideoCapture("F://AVSS_AB_Easy_Divx.AVI");
@@ -89,7 +90,7 @@ int main()
 
 		frame.copyTo(image);
 
-		//cv::imshow("WINDOW", image);//²âÊÔµã1
+		//cv::imshow("WINDOW", image);//ï¿½ï¿½ï¿½Ôµï¿½1
 		//if (cv::waitKey(33) == 27)
 		//	break;
 
@@ -98,7 +99,7 @@ int main()
 			image.copyTo(origImage);
 
 
-			if (trackObject)//Ò»¸öÍêÕûµÄÊó±êÊÂ¼ş£¬¼´BUTTONDOWNºÍBUTTONUPÍê³ÉÒÔºóÖ´ĞĞ
+			if (trackObject)//Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½BUTTONDOWNï¿½ï¿½BUTTONUPï¿½ï¿½ï¿½ï¿½ï¿½Ôºï¿½Ö´ï¿½ï¿½
 			{
 
 				if (trackObject == true)
@@ -106,16 +107,16 @@ int main()
 					//selection.x = 270;
 					//selection.y = 360;
 					//selection.width = 4;
-					//selection.height = 4;//ÓÃÓÚ²âÊÔµÄ¹Ì¶¨ÇøÓò¡£
+					//selection.height = 4;//ï¿½ï¿½ï¿½Ú²ï¿½ï¿½ÔµÄ¹Ì¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 					//rectangle(origImage, selection, cv::Scalar(0), 2);
 					//imshow("WINDOW", origImage);
 					//if (cv::waitKey(33) == 27)
 					//	break;
 
-					/*************************************¼ÆËãºËº¯Êı*************************************/
-					center[0] = double(selection.width / 2.0);//¶ÔÓ¦y(2)
-					center[1] = double(selection.height / 2.0);//¶ÔÓ¦y(1)
+					/*************************************ï¿½ï¿½ï¿½ï¿½ï¿½Ëºï¿½ï¿½ï¿½*************************************/
+					center[0] = double(selection.width / 2.0);//ï¿½ï¿½Ó¦y(2)
+					center[1] = double(selection.height / 2.0);//ï¿½ï¿½Ó¦y(1)
 
 					double windowSize = (center[0] * center[0]) + (center[1] * center[1]);
 
@@ -134,11 +135,11 @@ int main()
 							kernel_sum += kernel.at<double>(j, i);
 						}
 					}
-					std::cout << "\n" << kernel_sum << "\n";//²âÊÔµã2
+					std::cout << "\n" << kernel_sum << "\n";//ï¿½ï¿½ï¿½Ôµï¿½2
 
 					kernel_norm = 1.0 / kernel_sum;
 
-					/**********************************¼ÆËãÑ¡¶¨Ä¿±êÖ±·½Í¼***********************************/
+					/**********************************ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½Ä¿ï¿½ï¿½Ö±ï¿½ï¿½Í¼***********************************/
 					histogram_image = Mat::zeros(1, 4097, CV_64F);
 
 					cv::Vec3d pixel_value;
@@ -175,7 +176,7 @@ int main()
 						}
 						x_point++;
 					}
-					trackObject = false;//µ±Ä¿±êÄ£ĞÍ¼ÆËãÍê³Éºó£¬ĞëÍÆ³öÑ­»·£¬²»ÔÙÖØ¸´¼ÆËã£¬·Ç³£ÖØÒªµÄ²ÎÊıÉèÖÃ¡£
+					trackObject = false;//ï¿½ï¿½Ä¿ï¿½ï¿½Ä£ï¿½Í¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Éºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ³ï¿½Ñ­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø¸ï¿½ï¿½ï¿½ï¿½ã£¬ï¿½Ç³ï¿½ï¿½ï¿½Òªï¿½Ä²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¡ï¿½
 					start = true;
 				}
 			}
@@ -189,11 +190,11 @@ int main()
 
 			int iteration = 0;
 			
-			while ((Y[0] * Y[0] + Y[1] * Y[1]>0.5) && iteration<20)/**********µü´úÌõ¼ş************************/
+			while ((Y[0] * Y[0] + Y[1] * Y[1]>0.5) && iteration<20)/**********ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½************************/
 			{
 				iteration = iteration + 1;
 				/*std::cout<<"\n"<<iteration<<"\n";*/
-				/***********************************´´½¨ºòÑ¡ÇøÖ±·½Í¼******************************/
+				/***********************************ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½Ö±ï¿½ï¿½Í¼******************************/
 				histogram_image_canditate = Mat::zeros(1, 4097, CV_64F);
 				location_canditate = Mat::zeros(selection.height + 1, selection.width + 1, CV_64F);
 
@@ -229,7 +230,7 @@ int main()
 					}
 					x_point_canditate++;
 				}
-				/**************************************È¨Öµº¯Êı******************************************/
+				/**************************************È¨Öµï¿½ï¿½ï¿½ï¿½******************************************/
 				weightImage = cv::Mat(1, 4097, CV_64F, cv::Scalar(0));
 
 				for (int i = 1; i<=4096; i++)
@@ -275,7 +276,7 @@ int main()
 				Y[1] = norm_y / weight_sum;
 				std::cout << "\n" << Y[1] << "\n";
 
-				//¸Ä±äÑ¡¶¨¿òÎ»ÖÃ£¬ÎªÏÂÒ»´Îµü´ú³õÊ¼»¯Î»ÖÃ
+				//ï¿½Ä±ï¿½Ñ¡ï¿½ï¿½ï¿½ï¿½Î»ï¿½Ã£ï¿½Îªï¿½ï¿½Ò»ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½Î»ï¿½ï¿½
 				trackWindow.x = selection.x + Y[1];
 				trackWindow.y = selection.y + Y[0];
 				trackWindow.width = selection.width;
@@ -288,9 +289,9 @@ int main()
 				}
 				selection = trackWindow;
 
-			}//whileÀ¨»¡
+			}//whileï¿½ï¿½ï¿½ï¿½
 
-			/***********************»­³öÔËĞĞ½á¹û*********************/
+			/***********************ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğ½ï¿½ï¿½ï¿½*********************/
 			rectangle(origImage, trackWindow, cv::Scalar(0), 2);
 
 			imshow("WINDOW", origImage);
@@ -308,7 +309,7 @@ int main()
 			}
 
 
-		}//ifÔİÍ£À¨»¡
+		}//ifï¿½ï¿½Í£ï¿½ï¿½ï¿½ï¿½
 
 
 	}
